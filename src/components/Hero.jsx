@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import "tailwindcss/tailwind.css";
-import "flowbite"; 
+import "flowbite";
 
-const Hero = () => {
-    // State to track the visibility of the details
-    const [showDetails, setShowDetails] = useState(false);
-    const [showDetails1, setShowDetails1] = useState(false);
+const Hero = ({ navButton }) => {
+    const [showDetails, setShowDetails] = useState(false);// projects
+    const [showDetails1, setShowDetails1] = useState(false);// contact
+
+    useEffect(() => {
+        if (navButton === "projects") {
+            toggleDetails();
+        } else if (navButton === "contact") {
+            toggleDetails1();
+        }
+    }, [navButton]);
 
     const toggleDetails = () => {
         if (showDetails1) {
@@ -22,23 +28,20 @@ const Hero = () => {
         setShowDetails1(!showDetails1);
     }
 
+
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-900 pt-20"
+            className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-900 pt-20
+            twilight-background"
         >
-
             {/* Name */}
-            <h1
-                className="text-4xl md:text-6xl font-extrabold text-white mb-4 relative z-10"
-            >
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 relative z-10">
                 Robert A. Grijalva
             </h1>
 
             {/* Subtitle */}
-            <h2
-                className="text-xl md:text-2xl text-gray-400 mb-6 relative z-10"
-            >
+            <h2 className="text-xl md:text-2xl text-gray-400 mb-6 relative z-10">
                 Backend Developer | React & .NET Enthusiast
             </h2>
 
@@ -46,41 +49,49 @@ const Hero = () => {
             <div className="flex space-x-4 mb-8 relative z-10">
                 <a
                     href="#projects"
-                    onClick={toggleDetails} // Trigger details on click
                     className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-all"
+                    onClick={toggleDetails}
                 >
                     View Projects
                 </a>
                 <a
                     href="#contact"
-                    onClick={toggleDetails1} // Trigger details on click
                     className="relative z-10 border border-white hover:bg-white hover:text-gray-900 text-white font-medium py-2 px-4 rounded-lg transition-all"
+                    onClick={toggleDetails1}
                 >
                     Contact Me
                 </a>
             </div>
 
-            {showDetails && (
-                <div className="relative z-10 transform transition-all duration-700 ease-out opacity-100 translate-y-0 max-w-xl text-gray-300">
-                    <p className="mb-6">
-                        Projects I have worked on include:
-                    </p>
-                    <ul className="list-disc pl-6">
-                        
+            <div className="relative w-[40%] min-h-[150px]"> 
+                {/* Projects */}
+                <div
+                    className={`absolute inset-0 transition-all duration-700 ease-out
+                    ${showDetails ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
+    `}
+                >
+                    <p className="mb-6 text-gray-300">Projects I have worked on include:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                        <p>Study Buddys: <a href="https://github.com/davidmonterrosa/study-buddies-frontend" target="_blank" className="text-blue-400">frontend</a></p>
+                        <p>Study Buddys: <a href="https://github.com/rob2fresh4this/study-buddys-backend-v2" target="_blank" className="text-blue-400">backend</a></p>
+                        <p>Pokemon Next App: <a href="https://github.com/rob2fresh4this/pokemon-api-next-rebuild" target="_blank" className="text-blue-400">frontend</a></p>
                     </ul>
                 </div>
-            )}
-            {showDetails1 && (
-                <div className="relative z-10 transform transition-all duration-700 ease-out opacity-100 translate-y-0 max-w-xl text-gray-300">
-                    <p className="mb-6">
-                        You can contact me via:
-                    </p>
-                    <ul className="list-disc pl-6">
-                        
-                    </ul>
-                </div>
-            )}
 
+                {/* Contact */}
+                <div
+                    className={`absolute inset-0 transition-all duration-700 ease-out delay-200
+                    ${showDetails1 ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
+    `}
+                >
+                    <p className="mb-6 text-gray-300">You can contact me via:</p>
+                    <ul className="list-disc pl-6 text-gray-300 space-y-2">
+                        <p>Email: <a href="mailto:grijrob07@gmail.com" className="text-blue-400">My Email</a></p>
+                        <p>GitHub: <a href="https://github.com/rob2fresh4this" target="_blank" className="text-blue-400">My Github</a></p>
+                        <p>Phone: <a href="tel:2095945363" className="text-blue-400">My Phone</a></p>
+                    </ul>
+                </div>
+            </div>
         </section>
     );
 };

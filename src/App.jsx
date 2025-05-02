@@ -1,18 +1,21 @@
-import 'tailwindcss/tailwind.css';
-import 'flowbite';
-import Navbar from "./components/Navbar"
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from './components/About';
+import About from "./components/About";
+import Skills from "./components/Skills";
 
-function App() {
+const App = () => {
+    const [navButton, setNavButton] = useState("");
 
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <About />
-    </>
-  )
-}
+    return (
+        <div>
+            <Navbar setNavButton={setNavButton} />
+            <Hero navButton={navButton} />
+            <About />
+            <Skills />
+            
+        </div>
+    );
+};
 
-export default App
+export default App;

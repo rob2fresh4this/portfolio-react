@@ -1,3 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.twilight-background {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Full screen */
+    width: 100%;
+    color: white;
+    z-index: 0;
+}
+
+/* Background gradient animation */
+.twilight-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, #1e3a8a, #4f46e5, #7c3aed);
+    background-size: 600% 600%;
+    animation: gradientShift 10s ease infinite;
+    z-index: -2;
+    border-radius: 1rem;
+}
+
+/* Twinkling stars layer */
+.twilight-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("./assets/trigger-zzz.jpg") no-repeat center center;
+    background-size: cover;
+    animation: twinkle 5s linear infinite;
+    opacity: 0.4;
+    z-index: -1;
+    border-radius: 1rem;
+}
+
+/* Content sits on top */
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
