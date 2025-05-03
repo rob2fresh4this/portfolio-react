@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-outline {
+    color: white;
+    text-shadow:
+        -0.4px -0.4px 0 black,
+        0.4px -0.4px 0 black,
+        -0.4px 0.4px 0 black,
+        0.4px 0.4px 0 black;
+}
+
+.text-no-outline {
+    text-shadow: none;
+}
