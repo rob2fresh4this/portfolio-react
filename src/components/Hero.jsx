@@ -34,7 +34,7 @@ const Hero = ({ navButton }) => {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gray-900 pt-20"
+            className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-[#585754] pt-20"
         >
             <video
                 autoPlay
