@@ -1,21 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { skills } from "../services/dataservices"; // Importing the skills data
 
-const skills = [
-    { name: "C#", icon: "devicon-csharp-plain" },
-    { name: ".NET", icon: "devicon-dot-net-plain" },
-    { name: "React", icon: "devicon-react-original" },
-    { name: "TypeScript", icon: "devicon-typescript-plain" },
-    { name: "Tailwind", icon: "devicon-tailwindcss-plain" },
-    { name: "JavaScript", icon: "devicon-javascript-plain" },
-    { name: "HTML", icon: "devicon-html5-plain" },
-    { name: "CSS", icon: "devicon-css3-plain" },
-    { name: "Node.js", icon: "devicon-nodejs-plain" },
-    { name: "Git", icon: "devicon-git-plain" },
-    { name: "GitHub", icon: "devicon-github-original" },
-    { name: "SignalR", icon: "" }, // No Devicon available
-];
 
 const Skills = () => {
     return (
@@ -29,6 +16,7 @@ const Skills = () => {
                 {skills.map((skill, index) => (
                     <div
                         key={index}
+                        onClick={() => window.open(skill.link, "_blank")}
                         className="bg-[#e2bd3f] hover:bg-[#B59422] transition p-4 rounded-xl flex flex-col items-center justify-center shadow-md"
                     >
                         {skill.icon ? (
