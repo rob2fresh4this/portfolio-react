@@ -11,6 +11,15 @@
         0.4px 0.4px 0 black;
 }
 
+.text-outline-thicc {
+    color: white;
+    text-shadow:
+        -0.8px -0.8px 0 black,
+        0.8px -0.8px 0 black,
+        -0.8px 0.8px 0 black,
+        0.8px 0.8px 0 black;
+}
+
 .text-no-outline {
     text-shadow: none;
 }

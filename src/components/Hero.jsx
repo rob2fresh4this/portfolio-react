@@ -48,13 +48,13 @@ const Hero = ({ navButton }) => {
             </video>
 
             {/* Name */}
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 relative z-10">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-outline-thicc text-white mb-4 relative z-10">
                 Robert A. Grijalva
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-xl md:text-2xl text-gray-400 mb-6 relative z-10">
-                Backend Developer | React & .NET Enthusiast
+            <h2 className="text-xl md:text-2xl text-[white] text-outline-thicc mb-6 relative z-10">
+                <span className="shadow-2xl">Backend Developer</span> | <span className="shadow-2xl">React & .NET Enthusiast</span>
             </h2>
 
             {/* Buttons */}
@@ -80,7 +80,7 @@ const Hero = ({ navButton }) => {
                 <div
                     className={`absolute inset-0 transition-all duration-700 ease-out
                     ${showDetails ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
-    `}
+                `}
                 >
                     <p className="mb-6 text-gray-100 font-bold text-outline md:text-no-outline">Projects I have worked on include:</p>
                     <ul className="list-disc pl-6 text-gray-50 space-y-2 text-outline md:text-no-outline">
@@ -94,7 +94,7 @@ const Hero = ({ navButton }) => {
                 <div
                     className={`absolute inset-0 transition-all duration-700 ease-out delay-200
                     ${showDetails1 ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
-    `}
+                `}
                 >
                     <p className="mb-6 text-gray-100 font-bold text-outline md:text-no-outline">You can contact me via:</p>
                     <ul className="list-disc pl-6 text-gray-50 space-y-2 text-outline md:text-no-outline">
