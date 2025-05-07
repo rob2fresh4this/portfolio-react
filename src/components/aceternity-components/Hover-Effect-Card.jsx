@@ -1,7 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-
 import { useState } from "react";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 
 export const HoverEffect = ({
     items,
@@ -15,6 +16,7 @@ export const HoverEffect = ({
             {items.map((item, idx) => (
                 <a
                     href={item?.link}
+                    target="_blank"
                     key={item?.link}
                     className="relative group  block p-2 h-full w-full"
                     onMouseEnter={() => setHoveredIndex(idx)}
@@ -22,7 +24,7 @@ export const HoverEffect = ({
                     <AnimatePresence>
                         {hoveredIndex === idx && (
                             <motion.span
-                                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                                className="absolute inset-0 h-full w-full bg-slate-500/[0.8] block  rounded-3xl"
                                 layoutId="hoverBackground"
                                 initial={{ opacity: 0 }}
                                 animate={{
@@ -35,9 +37,13 @@ export const HoverEffect = ({
                                 }} />
                         )}
                     </AnimatePresence>
-                    <Card>
-                        <CardTitle>{item.title}</CardTitle>
-                        <CardDescription>{item.description}</CardDescription>
+                    <Card className="bg-[#e2bd3f] hover:bg-[#B59422] transition p-4 rounded-xl flex flex-col items-center justify-center shadow-md">
+                        {item.icon ? (
+                            <i className={`${item.icon} text-[#6b6c6b] text-4xl mb-3 hover:scale-110 transition-transform duration-300`} />
+                        ) : (
+                            <FontAwesomeIcon icon={faCode} className="text-[#6b6c6b] mb-3 text-3xl hover:scale-110 transition-transform duration-300" />// fallback icon
+                        )}
+                        <CardTitle className="text-sm text-[#252526] font-lg">{item.name}</CardTitle>
                     </Card>
                 </a>
             ))}

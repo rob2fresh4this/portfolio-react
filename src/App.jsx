@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+import CornerIcon from "./components/Corner-Icon";
+
 
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
             <hr />
             <Skills />
             <Footer />
+            <CornerIcon />
         </div>
     );
 };
