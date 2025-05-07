@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import asabaharumasazzz from "../assets/asaba-harumasa-zzz.mp4";
 import "tailwindcss/tailwind.css";
 import "flowbite";
+import TypewriterEffect from "./aceternity-components/Typewriter-Effect";
+
 
 
 const Hero = ({ navButton }) => {
     const [showDetails, setShowDetails] = useState(false);// projects
     const [showDetails1, setShowDetails1] = useState(false);// contact
+    const [nameDone, setNameDone] = useState(false); // State to track if the name has finished typing
 
     useEffect(() => {
         if (navButton === "projects") {
@@ -30,6 +33,10 @@ const Hero = ({ navButton }) => {
         setShowDetails1(!showDetails1);
     }
 
+    const handleNameComplete = () => {
+        setNameDone(true); // Set the state to true when name is done typing
+    };
+
 
     return (
         <section
@@ -48,14 +55,24 @@ const Hero = ({ navButton }) => {
             </video>
 
             {/* Name */}
-            <h1 className="text-4xl md:text-6xl font-extrabold text-outline-thicc text-white mb-4 relative z-10">
-                Robert A. Grijalva
-            </h1>
+            <TypewriterEffect
+                text="Robert A. Grijalva"
+                speed={100}
+                className="text-4xl md:text-6xl font-extrabold text-white mb-4 relative z-10"
+                onComplete={handleNameComplete} // Pass the callback to be called when typing finishes
+            />
 
-            {/* Subtitle */}
-            <h2 className="text-xl md:text-2xl text-[white] text-outline-thicc mb-6 relative z-10">
-                <span className="shadow-2xl">Backend Developer</span> | <span className="shadow-2xl">React & .NET Enthusiast</span>
-            </h2>
+            {nameDone && (
+                <h2 className="text-xl md:text-2xl text-[white] text-outline-thicc mb-6 relative z-10">
+                    {/* <span className="shadow-2xl">Backend Developer</span> |
+                    <span className="shadow-2xl">React & .NET Enthusiast</span> */}
+                    <TypewriterEffect
+                        text="Backend Developer | React & .NET Enthusiast"
+                        speed={100}
+                        className="text-xl md:text-2xl text-[white] text-outline-thicc mb-6 relative z-10"
+                    />
+                </h2>
+            )}
 
             {/* Buttons */}
             <div className="flex space-x-4 mb-8 relative z-10">
