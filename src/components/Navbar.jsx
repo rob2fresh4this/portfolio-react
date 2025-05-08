@@ -20,14 +20,14 @@ const Navbar = ({ setNavButton }) => {
                         Skills
                     </a>
                     <a
-                        href="#projects"
+                        href="#hero"
                         className="text-gray-300 hover:text-white transition"
                         onClick={() => setNavButton("projects")}
                     >
                         Projects
                     </a>
                     <a
-                        href="#contact"
+                        href="#hero"
                         className="text-gray-300 hover:text-white transition"
                         onClick={() => setNavButton("contact")}
                     >

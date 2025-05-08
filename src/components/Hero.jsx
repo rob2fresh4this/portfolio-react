@@ -77,6 +77,7 @@ const Hero = ({ navButton }) => {
             {/* Buttons */}
             <div className="flex space-x-4 mb-8 relative z-10">
                 <a
+                    
                     href="#projects"
                     className="bg-[#e5be41] hover:bg-[#B59422] text-white font-medium py-2 px-4 rounded-lg transition-all"
                     onClick={toggleDetails}
@@ -84,6 +85,7 @@ const Hero = ({ navButton }) => {
                     View Projects
                 </a>
                 <a
+                    
                     href="#contact"
                     className="relative z-10 borde bg-[#6b6c6b] hover:bg-[#565551] md:border-white md:hover:bg-white hover:text-gray-900 text-white font-medium py-2 px-4 rounded-lg transition-all"
                     onClick={toggleDetails1}
@@ -109,6 +111,7 @@ const Hero = ({ navButton }) => {
 
                 {/* Contact */}
                 <div
+                    
                     className={`absolute inset-0 transition-all duration-700 ease-out delay-200
                     ${showDetails1 ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
                 `}
