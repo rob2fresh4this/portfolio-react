@@ -9,7 +9,7 @@ const Skills = () => {
     };
 
     return (
-        <section id="skills" className="bg-[#1e1e1f] py-16 px-4 text-white text-center">
+        <section id="skills" className="bg-[#1e1e1f] py-16 px-4 text-white text-center mb-[30px]">
             <motion.div
                 initial="hidden"
                 whileInView="visible"
