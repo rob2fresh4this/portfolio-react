@@ -6,25 +6,24 @@ import Resume from "../assets/Resume-Version-2.pdf";
 
 const Footer = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
             
-            // Show footer when scrolling down, hide when scrolling up
-            if (currentScrollY > lastScrollY) {
+            // If we're near the bottom of the page (within 100px from the bottom), show the footer
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
-            
-            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
+    }, []);
 
     return (
         <motion.footer
