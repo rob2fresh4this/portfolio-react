@@ -1,12 +1,26 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
+    const textVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 },
+    };
+
     return (
         <section
             id="about"
             className="bg-[#1e1e1f] text-white py-20 px-6 md:px-12 lg:px-24"
         >
-            <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+                className="max-w-4xl mx-auto text-center"
+                initial="hidden"
+                whileInView="visible"
+                exit="hidden"
+                variants={textVariants}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.2 }}
+            >
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
                 <p className="text-gray-300 text-lg leading-relaxed">
                     I’m Robert A. Grijalva, a backend developer in training at CodeStack Academy.
@@ -18,7 +32,7 @@ const About = () => {
                     I enjoy building real-time systems, solving complex problems, and bringing ideas to life with clean code.
                     My current focus is on developing secure login systems, real-time messaging features, and modern web APIs.
                 </p>
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -23,3 +23,11 @@
 .text-no-outline {
     text-shadow: none;
 }
+
+footer {
+    z-index: 10; /* Lower than the corner icon */
+}
+
+.corner-icon {
+    z-index: 50; /* Ensure corner icon stays on top */
+}
