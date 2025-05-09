@@ -1,6 +1,3 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { skills } from "../services/dataservices"; // Importing the skills data
 import { HoverEffect } from "./aceternity-components/Hover-Effect-Card";
 
